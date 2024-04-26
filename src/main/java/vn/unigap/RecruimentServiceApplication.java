@@ -1,13 +1,13 @@
-package com.quang.jobs;
+package vn.unigap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JobsApplication {
+public class RecruimentServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JobsApplication.class, args);
+		SpringApplication.run(RecruimentServiceApplication.class, args);
 	}
 
 }

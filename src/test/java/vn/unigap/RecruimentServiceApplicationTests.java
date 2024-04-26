@@ -1,10 +1,10 @@
-package com.quang.jobs;
+package vn.unigap;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JobsApplicationTests {
+class RecruimentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
