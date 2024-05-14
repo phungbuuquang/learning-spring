@@ -60,10 +60,10 @@ jobs:
           cache: maven
       - name: Build and Test with Maven
         env:
-          SPRING_DATASOURCE_URL: 'jdbc:mysql://127.0.0.1:3306/job_db'
+          SPRING_DATASOURCE_URL: 'jdbc:mysql://127.0.0.1:3306/recruiment_service'
           SPRING_DATASOURCE_USERNAME: 'root'
-          SPRING_DATASOURCE_PASSWORD: 'Admin@123'
-          SPRING_JPA_HIBERNATE_DDLAUTO: 'none'
+          SPRING_DATASOURCE_PASSWORD: 'root@123'
+          SPRING_JPA_HIBERNATE_DDLAUTO: 'update'
           SPRING_DATA_REDIS_HOST: '127.0.0.1'
           SPRING_DATA_REDIS_PORT: '6379'
           SPRING_DATA_REDIS_PASSWORD: 'Redis@123'
