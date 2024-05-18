@@ -30,6 +30,7 @@ public class EmployerDtoOut {
                 .id(u.getId())
                 .email(u.getEmail())
                 .name(u.getName())
+                .province(u.getProvince())
                 .description(u.getDescription())
                 .createAt(u.getCreatedDate())
                 .build();

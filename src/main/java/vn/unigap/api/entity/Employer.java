@@ -12,11 +12,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "EMPLOYERS")
+@Table(name = "EMPLOYER")
 public class Employer {
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy= GenerationType.TABLE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @Setter
@@ -36,11 +36,11 @@ public class Employer {
     private String description;
 
     @Builder.Default
-    @Column(name = "CREATED_DATE")
+    @Column(name = "CREATED_AT")
     private Date createdDate = new Date();
 
     @Builder.Default
-    @Column(name = "UPDATED_DATE")
+    @Column(name = "UPDATED_AT")
     private Date updatedDate = new Date();
 
 }

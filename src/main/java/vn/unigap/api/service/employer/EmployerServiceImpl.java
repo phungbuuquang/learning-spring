@@ -1,4 +1,4 @@
-package vn.unigap.api.service;
+package vn.unigap.api.service.employer;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

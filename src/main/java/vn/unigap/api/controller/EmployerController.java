@@ -3,11 +3,10 @@ package vn.unigap.api.controller;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import vn.unigap.api.dto.in.EmployerDtoIn;
 import vn.unigap.api.dto.in.PageDtoIn;
-import vn.unigap.api.service.EmployerService;
+import vn.unigap.api.service.employer.EmployerService;
 import vn.unigap.common.controller.AbstractResponseController;
 import vn.unigap.common.exception.ApiException;
 

@@ -1,4 +1,4 @@
-package vn.unigap.api.service;
+package vn.unigap.api.service.employer;
 
 import vn.unigap.api.dto.in.EmployerDtoIn;
 import vn.unigap.api.dto.in.PageDtoIn;
