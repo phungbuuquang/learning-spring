@@ -26,9 +26,9 @@ public class EmployerController extends AbstractResponseController {
     @PostMapping(path="") // Map ONLY POST Requests
     public ResponseEntity<?> addNewEmployer (@Valid @RequestBody EmployerDtoIn employerDto) {
         try{
-            return responseEntity(() -> {
-                return this.employerService.create(employerDto);
-            }, HttpStatus.CREATED);
+            return responseEntity(
+                    ()->  this.employerService.create(employerDto),
+             HttpStatus.CREATED);
         }catch (ApiException e){
             return responseEntity(e::getMessage, e.getHttpStatus());
         }

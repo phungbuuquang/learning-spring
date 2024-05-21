@@ -13,10 +13,10 @@ public class ApiResponse<T> {
     private String message;
     private T object;
 
-    public static <T> ApiResponse<T> success(T object) {
+    public static <T> ApiResponse<T> success(HttpStatus status, T object) {
         return ApiResponse.<T>builder()
                 .errorCode(ErrorCode.SUCCESS)
-                .statusCode(HttpStatus.OK.value())
+                .statusCode(status != null ? status.value() : HttpStatus.OK.value())
                 .object(object)
                 .build();
     }

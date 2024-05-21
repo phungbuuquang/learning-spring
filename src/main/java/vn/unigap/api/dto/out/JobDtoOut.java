@@ -23,6 +23,10 @@ public class JobDtoOut {
 
     String description;
 
+    String fields;
+
+    String provinces;
+
     Long salary;
 
     Date createdAt;
@@ -37,6 +41,8 @@ public class JobDtoOut {
                 .employerId(job.getEmployerId())
                 .title(job.getTitle())
                 .quantity(job.getQuantity())
+                .fields(job.getFields())
+                .provinces(job.getProvinces())
                 .description(job.getDescription())
                 .salary(job.getSalary())
                 .createdAt(job.getCreatedDate())

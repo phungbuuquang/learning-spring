@@ -1,0 +1,9 @@
+package vn.unigap.api.service.seeker;
+
+import vn.unigap.api.dto.in.PageDtoIn;
+import vn.unigap.api.dto.out.PageDtoOut;
+import vn.unigap.api.dto.out.SeekerDtoOut;
+
+public interface SeekerService {
+    PageDtoOut<SeekerDtoOut> list(PageDtoIn pageDtoIn, Integer provinceId);
+}
