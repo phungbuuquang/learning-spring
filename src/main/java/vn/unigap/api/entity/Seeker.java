@@ -21,10 +21,10 @@ public class Seeker {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = true)
     private String address;
 
     @Column(name = "birthday")

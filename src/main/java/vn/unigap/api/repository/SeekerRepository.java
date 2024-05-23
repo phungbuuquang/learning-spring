@@ -10,6 +10,5 @@ import vn.unigap.api.entity.Seeker;
 
 @Repository
 public interface SeekerRepository extends CrudRepository<Seeker, Long> {
-    @Query("SELECT * FROM Seeker  WHERE e.province = :provinceId Order By created_at ASC")
-    Page<Seeker> findAllByProvince(Pageable pageable, @Param("provinceId") Integer provinceId);
+    Page<Seeker> findAllByProvince(Pageable pageable,Integer provinceId);
 }
