@@ -9,4 +9,6 @@ public interface SeekerService {
     PageDtoOut<SeekerDtoOut> list(PageDtoIn pageDtoIn, Integer provinceId);
     SeekerDtoOut get(Long id);
     SeekerDtoOut create(SeekerDtoIn seekerDtoIn);
+    SeekerDtoOut update(Long id, SeekerDtoIn seekerDtoIn);
+    void delete(Long id);
 }

@@ -13,6 +13,8 @@ import vn.unigap.api.service.seeker.SeekerService;
 import vn.unigap.common.controller.AbstractResponseController;
 import vn.unigap.common.exception.ApiException;
 
+import java.util.HashMap;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
@@ -45,5 +47,31 @@ public class SeekerController extends AbstractResponseController {
                 ()->seekerService.create(seekerDtoIn),
                 HttpStatus.CREATED
         );
+    }
+
+    @PutMapping("/{id}")
+    ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody SeekerDtoIn seekerDtoIn){
+        try{
+            return  responseEntity(
+                    ()->seekerService.update(id, seekerDtoIn)
+            );
+        }catch (ApiException e){
+            return responseEntity(e::getMessage, e.getHttpStatus());
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(name = "id") Long id){
+        try{
+            return  responseEntity(()-> {
+                        seekerService.delete(id);
+                        return new HashMap<>();
+                    }
+            );
+        }catch (ApiException e){
+            return responseEntity(e::getMessage, e.getHttpStatus());
+        }
+
     }
 }

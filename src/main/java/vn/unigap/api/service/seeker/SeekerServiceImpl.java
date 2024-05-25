@@ -55,4 +55,21 @@ public class SeekerServiceImpl implements SeekerService {
         );
         return SeekerDtoOut.from(seeker);
     }
+
+    @Override
+    public SeekerDtoOut update(Long id, SeekerDtoIn seekerDtoIn) {
+        Seeker seeker = seekerRepository.findById(id).orElseThrow(
+                ()-> new ApiException(ErrorCode.NOT_FOUND, HttpStatus.NOT_FOUND, "Seeker not found")
+        );
+        Seeker res = seekerRepository.save(seekerDtoIn.copy(seeker));
+        return SeekerDtoOut.from(res);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Seeker seeker = seekerRepository.findById(id).orElseThrow(
+                ()-> new ApiException(ErrorCode.NOT_FOUND, HttpStatus.NOT_FOUND, "Seeker not found")
+        );
+         seekerRepository.deleteById(id);
+    }
 }
