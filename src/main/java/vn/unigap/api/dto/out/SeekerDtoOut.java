@@ -30,6 +30,7 @@ public class SeekerDtoOut {
                 .birthday(seeker.getBirthday())
                 .address(seeker.getAddress())
                 .provinceId(seeker.getProvince())
+//                .provinceName(seeker.getProvinceObj().getName())
                 .build();
     }
 }

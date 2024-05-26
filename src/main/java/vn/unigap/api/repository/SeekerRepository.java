@@ -10,5 +10,6 @@ import vn.unigap.api.entity.Seeker;
 
 @Repository
 public interface SeekerRepository extends CrudRepository<Seeker, Long> {
-    Page<Seeker> findAllByProvince(Pageable pageable,Integer provinceId);
+    @Query("SELECT *, jp.name AS provinceName FROM Seeker s LEFT JOIN job_province jp On jp.id = s.province WHERE jp.id = :provinceId")
+    Page<Seeker> findSeekersByProvinceId(Integer provinceId, Pageable pageable);
 }

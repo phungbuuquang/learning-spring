@@ -23,11 +23,11 @@ public class SeekerServiceImpl implements SeekerService {
 
     @Override
     public PageDtoOut<SeekerDtoOut> list(PageDtoIn pageDtoIn, Integer provinceId) {
-        Page<Seeker> seekers = seekerRepository.findAllByProvince(PageRequest.of(
+        Page<Seeker> seekers = seekerRepository.findSeekersByProvinceId(provinceId, PageRequest.of(
                pageDtoIn.getPage() - 1,
                 pageDtoIn.getPageSize(),
                 Sort.by("createdAt").ascending()
-        ) ,provinceId);
+        ) );
 
         return  PageDtoOut.from(pageDtoIn.getPage(),
                                 pageDtoIn.getPageSize(),

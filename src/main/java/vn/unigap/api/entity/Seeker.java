@@ -1,6 +1,7 @@
 package vn.unigap.api.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,4 +39,5 @@ public class Seeker {
 
     @Column(name = "updated_at")
     private Date updatedAt;
+
 }
