@@ -25,7 +25,7 @@ public class SeekerDtoIn {
             seeker.setAddress(address);
         }
         if(provinceId != null){
-            seeker.setProvince(provinceId);
+//            seeker.setProvinceId(provinceId);
         }
         seeker.setUpdatedAt(Common.currentTime());
         return  seeker;

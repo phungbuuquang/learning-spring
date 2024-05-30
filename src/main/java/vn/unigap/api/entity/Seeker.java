@@ -1,13 +1,15 @@
 package vn.unigap.api.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -16,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "SEEKER")
-public class Seeker {
+public class Seeker implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -31,8 +33,8 @@ public class Seeker {
     @Column(name = "birthday")
     private String birthday;
 
-    @Column(name = "province")
-    private Integer province;
+//    @Column(name = "province_id")
+//    private Integer provinceId;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -40,4 +42,7 @@ public class Seeker {
     @Column(name = "updated_at")
     private Date updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="province_id")
+    private Province province;
 }

@@ -6,10 +6,19 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import vn.unigap.api.dto.out.SeekerDtoOut;
 import vn.unigap.api.entity.Seeker;
+
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface SeekerRepository extends CrudRepository<Seeker, Long> {
-    @Query("SELECT *, jp.name AS provinceName FROM Seeker s LEFT JOIN job_province jp On jp.id = s.province WHERE jp.id = :provinceId")
-    Page<Seeker> findSeekersByProvinceId(Integer provinceId, Pageable pageable);
+
+
+    Page<Seeker> findAllByProvinceId(Integer provinceId, Pageable pageable);
+
+    @Query(value = "SELECT s.*, jp.name AS provinceName FROM Seeker s LEFT JOIN job_province jp On jp.id = s.province WHERE jp.id = :provinceId",
+            nativeQuery = true)
+    List<Map<String, Object>> findSeekersByProvinceIdRaw(Integer provinceId);
 }
