@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Builder
@@ -30,7 +31,7 @@ public class Seeker implements Serializable {
     @Column(name = "address", nullable = true)
     private String address;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday",nullable = false)
     private String birthday;
 
 //    @Column(name = "province_id")
@@ -45,4 +46,7 @@ public class Seeker implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="province_id")
     private Province province;
+
+    @OneToMany(mappedBy = "seeker")
+    private Set<Resume> resumes;
 }

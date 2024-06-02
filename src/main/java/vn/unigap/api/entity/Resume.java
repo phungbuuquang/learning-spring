@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Builder
@@ -20,8 +21,15 @@ public class Resume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "seeker_id")
-    private Long seekerId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "seeker_id")
+    private Seeker seeker;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "resume_job_field",
+            joinColumns = @JoinColumn(name = "resume_id"),
+            inverseJoinColumns = @JoinColumn(name = "job_field_id"))
+    private Set<JobField> jobFields;
 
     @Column(name = "career_obj")
     private String careerObj;
@@ -39,8 +47,8 @@ public class Resume {
     private String provinces;
 
     @Column(name = "created_at")
-    private Date createdAt;
+    private Date createdAt = new Date();
 
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private Date updatedAt = new Date();
 }

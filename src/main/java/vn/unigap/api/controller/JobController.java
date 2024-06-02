@@ -23,7 +23,7 @@ public class JobController extends AbstractResponseController {
     private JobService jobService;
 
     @GetMapping(path="")
-    ResponseEntity<?> list(PageDtoIn  pageDtoIn){
+    ResponseEntity<?> list(PageDtoIn pageDtoIn){
         return  responseEntity(()->{
           return   jobService.list(pageDtoIn);
         });
